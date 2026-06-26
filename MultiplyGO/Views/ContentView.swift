@@ -16,10 +16,25 @@ struct ContentView: View {
                 Color.primaryColor
                     .ignoresSafeArea()
                 VStack {
+                    
+                }
+                VStack {
                     Button {
                         
                     } label: {
+                        MenuButton(text: "PLAY")
+                    }
+                    
+                    Button {
                         
+                    } label: {
+                        MenuButton(text: "PROGRESS")
+                    }
+                    
+                    Button {
+                        
+                    } label: {
+                        MenuButton(text: "SETTINGS")
                     }
                 }
             }
@@ -27,6 +42,20 @@ struct ContentView: View {
         }
     }
 }
+
+struct MenuButton: View {
+    var text: String
+    
+    var body: some View {
+        Image("MenuButton")
+            .overlay(
+            Text(text)
+                .font(.custom("Kenney-Future-Narrow", size: 20))
+                .foregroundStyle(Color.black)
+            )
+    }
+}
+
 
 #Preview {
     ContentView()
