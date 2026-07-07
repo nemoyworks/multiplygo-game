@@ -25,26 +25,26 @@ struct MainMenuView: View {
                     }
                     
                     VStack {
-                        Button {
-
+                        NavigationLink() {
+                            PlayView()
                         } label: {
                             MenuButton(text: "PLAY")
                         }
                         
-                        Button {
-                            
+                        NavigationLink() {
+                            PracticeView()
                         } label: {
                             MenuButton(text: "PRACTICE")
                         }
                         
-                        Button {
-                            
+                        NavigationLink() {
+                            ProgressView()
                         } label: {
                             MenuButton(text: "PROGRESS")
                         }
                         
-                        Button {
-                            
+                        NavigationLink() {
+                            SettingsView()
                         } label: {
                             MenuButton(text: "SETTINGS")
                         }
