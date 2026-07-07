@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "button_rectangle_depth_flat.png",
+      "filename" : "CircleButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

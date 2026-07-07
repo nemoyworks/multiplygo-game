@@ -9,8 +9,9 @@ import SwiftUI
 
 struct SettingsView: View {
     @State private var sound = true
+    @State private var music = true
     @State private var haptics = true
-    
+    @State private var notifications = true
     
     var body: some View {
         NavigationStack {
@@ -32,6 +33,7 @@ struct SettingsView: View {
                             Toggle("SOUND", systemImage: "speaker.wave.3", isOn: $sound)
                                 .frame(maxWidth: 380)
                                 .font(.primary(20))
+                                .toggleStyle(SwitchToggleStyle(tint: .yellow))
                         }
                         
                         ZStack {
@@ -39,9 +41,10 @@ struct SettingsView: View {
                                 .frame(width: 400, height: 70)
                                 .foregroundColor(Color.white)
                             
-                            Toggle("MUSIC", systemImage: "music.note", isOn: $sound)
+                            Toggle("MUSIC", systemImage: "music.note", isOn: $music)
                                 .frame(maxWidth: 380)
                                 .font(.primary(20))
+                                .toggleStyle(SwitchToggleStyle(tint: .yellow))
                         }
                         
                         ZStack {
@@ -49,9 +52,10 @@ struct SettingsView: View {
                                 .frame(width: 400, height: 70)
                                 .foregroundColor(Color.white)
                             
-                            Toggle("HAPTICS", systemImage: "hand.tap", isOn: $sound)
+                            Toggle("HAPTICS", systemImage: "hand.tap", isOn: $haptics)
                                 .frame(maxWidth: 380)
                                 .font(.primary(20))
+                                .toggleStyle(SwitchToggleStyle(tint: .yellow))
                         }
                         
                         ZStack {
@@ -59,9 +63,10 @@ struct SettingsView: View {
                                 .frame(width: 400, height: 70)
                                 .foregroundColor(Color.white)
                             
-                            Toggle("NOTIFICATIONS", systemImage: "bell", isOn: $sound)
+                            Toggle("NOTIFICATIONS", systemImage: "bell", isOn: $notifications)
                                 .frame(maxWidth: 380)
                                 .font(.primary(20))
+                                .toggleStyle(SwitchToggleStyle(tint: .yellow))
                         }
                         Spacer()
                     }
