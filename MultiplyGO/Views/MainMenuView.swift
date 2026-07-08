@@ -1,12 +1,4 @@
-//
-//  ContentView.swift
-//  MultiplyGO
-//
-//  Created by Ростислав Гайда on 25.06.2026.
-//
-
 import SwiftUI
-import SwiftData
 
 struct MainMenuView: View {
     
@@ -29,25 +21,25 @@ struct MainMenuView: View {
                         NavigationLink() {
                             PlayView()
                         } label: {
-                            MenuButton(text: "PLAY")
+                            PrimaryButton(text: "PLAY")
                         }
                         
                         NavigationLink() {
                             PracticeView()
                         } label: {
-                            MenuButton(text: "PRACTICE")
+                            PrimaryButton(text: "PRACTICE")
                         }
                         
                         NavigationLink() {
                             ProgressView()
                         } label: {
-                            MenuButton(text: "PROGRESS")
+                            PrimaryButton(text: "PROGRESS")
                         }
                         
                         NavigationLink() {
                             SettingsView()
                         } label: {
-                            MenuButton(text: "SETTINGS")
+                            PrimaryButton(text: "SETTINGS")
                         }
                         Spacer()
                     }

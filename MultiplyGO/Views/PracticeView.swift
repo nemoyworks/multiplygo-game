@@ -1,10 +1,3 @@
-//
-//  PracticeView.swift
-//  MultiplyGO
-//
-//  Created by Ростислав Гайда on 26.06.2026.
-//
-
 import SwiftUI
 
 struct PracticeView: View {
@@ -14,30 +7,86 @@ struct PracticeView: View {
             Color.appPrimary
                 .ignoresSafeArea()
             
-            ZStack {
-                MenuButton(text: "PRACTICE")
-                    .offset(x: 0, y: -350)
+            VStack {
+                ScreenHeader(text: "Practice")
+                
+                Spacer()
             }
+            .padding(.top, 5)
             
-            HStack(spacing: -10) {
-                Button {
+            VStack(spacing: 13) {
+                
+                HStack(spacing: 13) {
+                    Button {
+                        
+                    } label: {
+                        TableCard(image: "TableOfOne")
+                    }
                     
-                } label: {
-                    TableCard(image: "TableOfTwo")
+                    Button {
+                        
+                    } label: {
+                        TableCard(image: "TableOfTwo")
+                    }
+                    
+                    Button {
+                        
+                    } label: {
+                        TableCard(image: "TableOfThree")
+                    }
                 }
                 
-                Button {
+                HStack(spacing: 13) {
+                    Button {
+                        
+                    } label: {
+                        TableCard(image: "TableOfFour")
+                    }
                     
-                } label: {
-                    TableCard(image: "TableOfThree")
+                    Button {
+                        
+                    } label: {
+                        TableCard(image: "TableOfFive")
+                    }
+                    
+                    Button {
+                        
+                    } label: {
+                        TableCard(image: "TableOfSix")
+                    }
                 }
                 
-                Button {
+                HStack(spacing: 13) {
+                    Button {
+                        
+                    } label: {
+                        TableCard(image: "TableOfSeven")
+                    }
                     
-                } label: {
-                    TableCard(image: "TableOfFour")
+                    Button {
+                        
+                    } label: {
+                        TableCard(image: "TableOfEight")
+                    }
+                    
+                    Button {
+                        
+                    } label: {
+                        TableCard(image: "TableOfNine")
+                    }
                 }
             }
+            .offset(y: -15)
+            
+            VStack {
+                Spacer()
+                Button {
+                    
+                } label: {
+                    PrimaryButton(text: "  START")
+                }
+            }
+            .padding(.bottom, 50)
         }
     }
 }
