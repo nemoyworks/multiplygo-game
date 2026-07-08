@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MenuButton: View {
+struct PrimaryButton: View {
     var text: String
     
     var body: some View {
