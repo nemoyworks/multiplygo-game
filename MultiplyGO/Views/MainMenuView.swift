@@ -22,6 +22,7 @@ struct MainMenuView: View {
                         Image("AppLogo")
                             .resizable()
                             .scaledToFit()
+                            .offset(y: 80)
                     }
                     
                     VStack {

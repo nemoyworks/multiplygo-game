@@ -10,10 +10,10 @@ import SwiftUI
 struct PlayView: View {
     
     var body: some View {
-        ZStack {
-            Color.appPrimary
-                .ignoresSafeArea()
-            VStack {
+        NavigationStack {
+            ZStack {
+                Color.appPrimary
+                    .ignoresSafeArea()
                 
             }
         }
