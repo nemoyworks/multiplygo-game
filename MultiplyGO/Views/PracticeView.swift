@@ -83,7 +83,7 @@ struct PracticeView: View {
                 Button {
                     
                 } label: {
-                    PrimaryButton(text: "  START")
+                    StartButton(text: "  START")
                 }
             }
             .padding(.bottom, 50)
