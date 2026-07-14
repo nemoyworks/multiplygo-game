@@ -7,10 +7,10 @@ struct StartButton: View {
         Image("StartButton")
             .resizable()
             .scaledToFit()
-            .frame(width: 170, height: 80)
+            .frame(width: 180, height: 90)
             .overlay(
                 Text(text)
-                    .font(.primary(25))
+                    .font(.primary(30))
                     .foregroundStyle(Color.black)
             )
     }

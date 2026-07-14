@@ -1,6 +1,10 @@
 import SwiftUI
 
 struct PracticeView: View {
+    @State private var selectedTable: Set<Int> = []
+    @State private var startButton = false
+    @State private var showAlert = false
+    @State private var alertMessage = String()
     
     var body: some View {
         ZStack {
@@ -81,14 +85,28 @@ struct PracticeView: View {
             VStack {
                 Spacer()
                 Button {
-                    
+                    startPractice()
                 } label: {
                     StartButton(text: "  START")
                 }
             }
             .padding(.bottom, 50)
         }
+        .alert(alertMessage, isPresented: $showAlert) {
+            Button("OK", role: .cancel) { }
+        }
     }
+    
+    func startPractice() {
+        if selectedTable.isEmpty {
+            alertMessage = "Please select one or more tables"
+            showAlert = true
+        } else {
+            
+        }
+    }
+    
+    
 }
 
 #Preview {
