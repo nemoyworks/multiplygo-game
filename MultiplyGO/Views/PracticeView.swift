@@ -24,7 +24,6 @@ struct PracticeView: View {
                 HStack(spacing: 13) {
                     Button {
                         if selectedTable.contains(1) {
-                            print(selectedTable)
                         } else {
                             selectedTable.insert(1)
                         }
