@@ -68,7 +68,8 @@ struct SettingsView: View {
                 .frame(maxWidth: 420, maxHeight: 650)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundStyle(Color.toggleColor)
+                        .shadow(radius: 20)
+                        .foregroundStyle(Color.cardColor)
                 )
             }
         }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ScreenHeader: View {
     var text: String
+    var font: Font
     
     var body: some View {
         Image("ScreenHeader")
@@ -10,7 +11,7 @@ struct ScreenHeader: View {
             .frame(width: 250)
             .overlay(
                 Text(text)
-                    .font(.primary(30))
+                    .font(font)
             )
     }
 }

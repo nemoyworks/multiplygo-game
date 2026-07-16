@@ -5,5 +5,5 @@ extension Color {
 }
 
 extension Color {
-    static let toggleColor = Color("ToggleCard")
+    static let cardColor = Color("CardColor")
 }
