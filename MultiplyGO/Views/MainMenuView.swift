@@ -5,7 +5,8 @@ struct MainMenuView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.primaryColor
+                Image.appBackground
+                    .resizable()
                     .ignoresSafeArea()
                 
                 VStack {

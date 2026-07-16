@@ -11,11 +11,12 @@ struct PracticeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.appPrimary
+                Image.appBackground
+                    .resizable()
                     .ignoresSafeArea()
                 
                 VStack {
-                    ScreenHeader(text: "Practice")
+                    ScreenHeader(text: "Practice", font: .primary(30))
                     
                     Spacer()
                 }

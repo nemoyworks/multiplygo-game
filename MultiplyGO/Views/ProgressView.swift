@@ -4,7 +4,8 @@ struct ProgressView: View {
     
     var body: some View {
         ZStack {
-            Color.appPrimary
+            Image.appBackground
+                .resizable()
                 .ignoresSafeArea()
             VStack {
                 

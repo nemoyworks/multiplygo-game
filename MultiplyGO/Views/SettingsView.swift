@@ -9,7 +9,8 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.appPrimary
+                Image.appBackground
+                    .resizable()
                     .ignoresSafeArea()
                 
                 VStack {
