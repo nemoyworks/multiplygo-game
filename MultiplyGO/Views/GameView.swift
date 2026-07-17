@@ -9,8 +9,8 @@ struct GameView: View {
     @State private var answer = ""
     @State private var alertMessage = ""
     @State private var showAlert = false
+    @State private var score = 0
     
-    var score = 0
     let progressBarWidth: CGFloat = 230
     let tables: Set<Int>
     
@@ -93,6 +93,9 @@ struct GameView: View {
                 Spacer()
             }
         }
+        .onAppear {
+            questionGenerator()
+        }
         .alert(alertMessage, isPresented: $showAlert) {
             Button("OK, got it!", role: .cancel) { }
         }
@@ -111,13 +114,31 @@ struct GameView: View {
             alertMessage = "Please enter an answer"
             showAlert = true
         } else {
+            scoreCount()
             questionCount += 1
-            currentMultiplier += 1
-            questionGenerator()
+            if questionCount == numberOfQuestions {
+                gameOver()
+            } else {
+                answer = ""
+                currentMultiplier += 1
+                questionGenerator()
+            }
+        }
+    }
+    
+    func scoreCount() {
+        if Int(answer) == question.product {
+            score += 1
+        }
+    }
+    
+    func gameOver() {
+        if questionCount == numberOfQuestions {
+            alertMessage = "Your score is \(score) out of 10"
+            showAlert = true
         }
     }
 }
-
 
 #Preview {
     GameView(tables: [2, 3, 4])
