@@ -1,15 +1,18 @@
 import SwiftUI
 
 struct GameView: View {
-    @State private var questionCount = 1
-    @State private var numberOfQuestions = 20
+    
+    @State private var questionCount = 0
+    @State private var numberOfQuestions = 10
     @State private var question = Question(firstFactor: 1, secondFactor: 1)
+    @State private var currentMultiplier = 1
     @State private var answer = ""
-    @State private var isEmpty = true
     @State private var alertMessage = ""
     @State private var showAlert = false
     
+    var score = 0
     let progressBarWidth: CGFloat = 230
+    let tables: Set<Int>
     
     var body: some View {
         ZStack {
@@ -64,17 +67,29 @@ struct GameView: View {
                                         .shadow(radius: 1)
                                 )
                                 .overlay(
-                            TextField("", text: $answer)
-                                .frame(width: 180)
-                                .multilineTextAlignment(.center)
-                                .keyboardType(.numberPad)
-                            )
-                            }
+                                    TextField("", text: $answer)
+                                        .frame(width: 180)
+                                        .multilineTextAlignment(.center)
+                                        .keyboardType(.numberPad)
+                                )
+                        }
                             .offset(y: 20)
                             .font(.primary(50))
                             .foregroundStyle(Color.black)
                     )
                 Spacer()
+                Spacer()
+            }
+            VStack {
+                Spacer()
+                Spacer()
+                Button {
+                    checkAnswer()
+                } label: {
+                    Circle()
+                        .frame(width: 100, height: 100)
+                        .foregroundStyle(Color.yellow)
+                }
                 Spacer()
             }
         }
@@ -83,14 +98,27 @@ struct GameView: View {
         }
     }
     
+    func questionGenerator() {
+        let sortedTables = tables.sorted()
+        let currentTable = sortedTables.first
+        if let selectedTable = currentTable {
+            question = Question(firstFactor: selectedTable, secondFactor: currentMultiplier)
+        }
+    }
+    
     func checkAnswer() {
         if answer.isEmpty {
             alertMessage = "Please enter an answer"
             showAlert = true
+        } else {
+            questionCount += 1
+            currentMultiplier += 1
+            questionGenerator()
         }
     }
 }
 
+
 #Preview {
-    GameView()
+    GameView(tables: [2, 3, 4])
 }

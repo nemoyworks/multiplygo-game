@@ -134,7 +134,7 @@ struct PracticeView: View {
                 .padding(.bottom, 50)
             }
             .navigationDestination(isPresented: $navigateToGame) {
-                GameView()
+                GameView(tables: selectedTable)
             }
             .alert(alertMessage, isPresented: $showAlert) {
                 Button("OK", role: .cancel) { }
