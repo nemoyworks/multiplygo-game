@@ -1,8 +1,13 @@
-//
-//  KeyboardButton.swift
-//  MultiplyGO
-//
-//  Created by Ростислав Гайда on 18.07.2026.
-//
+import SwiftUI
 
-import Foundation
+struct KeyboardButton: View {
+    var image: String
+    
+    var body: some View {
+        Image(image)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 100, height: 80)
+            .shadow(radius: 5)
+    }
+}

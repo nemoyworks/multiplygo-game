@@ -77,22 +77,87 @@ struct GameView: View {
                             .font(.primary(50))
                             .foregroundStyle(Color.black)
                     )
+                
                 Spacer()
                 Spacer()
             }
+            
             VStack {
                 Spacer()
-                Spacer()
-                Button {
-                    checkAnswer()
-                } label: {
-                    Circle()
-                        .frame(width: 100, height: 100)
-                        .foregroundStyle(Color.yellow)
+                
+                VStack(spacing: -10){
+                    HStack(spacing: 1) {
+                        Button {
+                            
+                        } label: {
+                            KeyboardButton(image: "One")
+                        }
+                        
+                        Button {
+                            
+                        } label: {
+                            KeyboardButton(image: "Two")
+                        }
+                        
+                        Button {
+                            
+                        } label: {
+                            KeyboardButton(image: "Three")
+                        }
+                    }
+                    
+                    HStack(spacing: 1) {
+                        
+                        Button {
+                            
+                        } label: {
+                            KeyboardButton(image: "Four")
+                        }
+                        
+                        Button {
+                            
+                        } label: {
+                            KeyboardButton(image: "Five")
+                        }
+                        
+                        Button {
+                            
+                        } label: {
+                            KeyboardButton(image: "Six")
+                        }
+                    }
+                    
+                    HStack(spacing: 1) {
+                        Button {
+                            
+                        } label: {
+                            KeyboardButton(image: "Seven")
+                        }
+                        
+                        Button {
+                            
+                        } label: {
+                            KeyboardButton(image: "Eight")
+                        }
+                        
+                        Button {
+                            
+                        } label: {
+                            KeyboardButton(image: "Nine")
+                        }
+                    }
+                    
+                    HStack {
+                        Button {
+                            
+                        } label: {
+                            KeyboardButton(image: "Zero")
+                        }
+                    }
                 }
-                Spacer()
             }
         }
+        .navigationBarBackButtonHidden(true)
         .onAppear {
             questionGenerator()
         }
