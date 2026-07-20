@@ -88,19 +88,19 @@ struct GameView: View {
                 VStack(spacing: -15){
                     HStack(spacing: -10) {
                         Button {
-                            
+                            numberTapped("1")
                         } label: {
                             KeyboardButton(image: "One")
                         }
                         
                         Button {
-                            
+                            numberTapped("2")
                         } label: {
                             KeyboardButton(image: "Two")
                         }
                         
                         Button {
-                            
+                            numberTapped("3")
                         } label: {
                             KeyboardButton(image: "Three")
                         }
@@ -109,19 +109,19 @@ struct GameView: View {
                     HStack(spacing: -10) {
                         
                         Button {
-                            
+                            numberTapped("4")
                         } label: {
                             KeyboardButton(image: "Four")
                         }
                         
                         Button {
-                            
+                            numberTapped("5")
                         } label: {
                             KeyboardButton(image: "Five")
                         }
                         
                         Button {
-                            
+                            numberTapped("6")
                         } label: {
                             KeyboardButton(image: "Six")
                         }
@@ -129,19 +129,19 @@ struct GameView: View {
                     
                     HStack(spacing: -10) {
                         Button {
-                            
+                            numberTapped("7")
                         } label: {
                             KeyboardButton(image: "Seven")
                         }
                         
                         Button {
-                            
+                            numberTapped("8")
                         } label: {
                             KeyboardButton(image: "Eight")
                         }
                         
                         Button {
-                            
+                            numberTapped("9")
                         } label: {
                             KeyboardButton(image: "Nine")
                         }
@@ -149,19 +149,19 @@ struct GameView: View {
                     
                     HStack(spacing: -10) {
                         Button {
-                            
+                            deleteNumber()
                         } label: {
                             KeyboardButton(image: "Delete")
                         }
                         
                         Button {
-                            
+                            numberTapped("0")
                         } label: {
                             KeyboardButton(image: "Zero")
                         }
                         
                         Button {
-                            
+                            checkAnswer()
                         } label: {
                             KeyboardButton(image: "Enter")
                         }
@@ -183,6 +183,16 @@ struct GameView: View {
         let currentTable = sortedTables.first
         if let selectedTable = currentTable {
             question = Question(firstFactor: selectedTable, secondFactor: currentMultiplier)
+        }
+    }
+    
+    func numberTapped(_ number: String) {
+            answer.append(number)
+    }
+    
+    func deleteNumber() {
+        if !answer.isEmpty {
+            answer.removeLast()
         }
     }
     
