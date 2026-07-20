@@ -85,8 +85,8 @@ struct GameView: View {
             VStack {
                 Spacer()
                 
-                VStack(spacing: -10){
-                    HStack(spacing: 1) {
+                VStack(spacing: -15){
+                    HStack(spacing: -10) {
                         Button {
                             
                         } label: {
@@ -106,7 +106,7 @@ struct GameView: View {
                         }
                     }
                     
-                    HStack(spacing: 1) {
+                    HStack(spacing: -10) {
                         
                         Button {
                             
@@ -127,7 +127,7 @@ struct GameView: View {
                         }
                     }
                     
-                    HStack(spacing: 1) {
+                    HStack(spacing: -10) {
                         Button {
                             
                         } label: {
@@ -147,11 +147,23 @@ struct GameView: View {
                         }
                     }
                     
-                    HStack {
+                    HStack(spacing: -10) {
+                        Button {
+                            
+                        } label: {
+                            KeyboardButton(image: "Delete")
+                        }
+                        
                         Button {
                             
                         } label: {
                             KeyboardButton(image: "Zero")
+                        }
+                        
+                        Button {
+                            
+                        } label: {
+                            KeyboardButton(image: "Enter")
                         }
                     }
                 }
