@@ -16,168 +16,178 @@ struct GameView: View {
     let tables: Set<Int>
     
     var body: some View {
-        ZStack {
-            Image.appBackground
-                .resizable()
-                .ignoresSafeArea()
-            
-            VStack {
-                Capsule()
-                    .frame(width: 300, height: 75)
-                    .foregroundStyle(Color.cardColor)
-                    .overlay(
-                        VStack {
-                            Text("Question: \(questionCount) / \(numberOfQuestions)")
-                                .font(.primary(20))
-                            
-                            Capsule()
-                                .stroke(.black, lineWidth: 1)
-                                .frame(width: 230, height: 10)
-                                .overlay(alignment: .leading) {
-                                    Capsule()
-                                        .frame(width: CGFloat(progressBarWidth / Double(numberOfQuestions) * Double(questionCount)), height: 9)
-                                        .foregroundStyle(Color.yellow)
-                                }
-                        }
-                    )
-                Spacer()
-            }
-            
-            VStack {
-                Spacer()
-                RoundedRectangle(cornerRadius: 15)
-                    .frame(width: 350, height: 350)
-                    .foregroundStyle(Color.cardColor)
-                    .shadow(radius: 10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(.yellow, lineWidth: 6)
-                            .frame(width: 350, height: 350)
-                    )
-                    .overlay(
-                        VStack {
-                            Text("\(question.firstFactor) × \(question.secondFactor) = ?")
-                            
+        NavigationStack {
+            ZStack {
+                Image.appBackground
+                    .resizable()
+                    .ignoresSafeArea()
+                
+                VStack {
+                    Capsule()
+                        .frame(width: 300, height: 75)
+                        .foregroundStyle(Color.cardColor)
+                        .overlay(
+                            VStack {
+                                Text("Question: \(questionCount) / \(numberOfQuestions)")
+                                    .font(.primary(20))
+                                
+                                Capsule()
+                                    .stroke(.black, lineWidth: 1)
+                                    .frame(width: 230, height: 10)
+                                    .overlay(alignment: .leading) {
+                                        Capsule()
+                                            .frame(width: CGFloat(progressBarWidth / Double(numberOfQuestions) * Double(questionCount)), height: 9)
+                                            .foregroundStyle(Color.yellow)
+                                    }
+                            }
+                        )
+                    Spacer()
+                }
+                
+                VStack {
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 15)
+                        .frame(width: 350, height: 350)
+                        .foregroundStyle(Color.cardColor)
+                        .shadow(radius: 10)
+                        .overlay(
                             RoundedRectangle(cornerRadius: 15)
-                                .frame(width: 200, height: 70)
-                                .foregroundStyle(.white)
-                                .shadow(color: .white, radius: 5)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .stroke(.yellow, lineWidth: 2)
-                                        .shadow(radius: 1)
-                                )
-                                .overlay(
-                                    TextField("", text: $answer)
-                                        .frame(width: 190)
-                                        .multilineTextAlignment(.center)
-                                        .disabled(true)
-                                )
-                        }
-                            .offset(y: 20)
-                            .font(.primary(50))
-                            .foregroundStyle(Color.black)
-                    )
+                                .stroke(.yellow, lineWidth: 6)
+                                .frame(width: 350, height: 350)
+                        )
+                        .overlay(
+                            VStack {
+                                Text("\(question.firstFactor) × \(question.secondFactor) = ?")
+                                
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width: 200, height: 70)
+                                    .foregroundStyle(.white)
+                                    .shadow(color: .white, radius: 5)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .stroke(.yellow, lineWidth: 2)
+                                            .shadow(radius: 1)
+                                    )
+                                    .overlay(
+                                        TextField("", text: $answer)
+                                            .frame(width: 190)
+                                            .multilineTextAlignment(.center)
+                                            .disabled(true)
+                                    )
+                            }
+                                .offset(y: 20)
+                                .font(.primary(50))
+                                .foregroundStyle(Color.black)
+                        )
+                    
+                    Spacer()
+                    Spacer()
+                }
                 
-                Spacer()
-                Spacer()
-            }
-            
-            VStack {
-                Spacer()
-                
-                VStack(spacing: -15){
-                    HStack(spacing: -10) {
-                        Button {
-                            numberTapped("1")
-                        } label: {
-                            KeyboardButton(image: "One")
-                        }
-                        
-                        Button {
-                            numberTapped("2")
-                        } label: {
-                            KeyboardButton(image: "Two")
-                        }
-                        
-                        Button {
-                            numberTapped("3")
-                        } label: {
-                            KeyboardButton(image: "Three")
-                        }
-                    }
+                VStack {
+                    Spacer()
                     
-                    HStack(spacing: -10) {
-                        
-                        Button {
-                            numberTapped("4")
-                        } label: {
-                            KeyboardButton(image: "Four")
+                    VStack(spacing: -15){
+                        HStack(spacing: -10) {
+                            Button {
+                                numberTapped("1")
+                            } label: {
+                                KeyboardButton(image: "One")
+                            }
+                            
+                            Button {
+                                numberTapped("2")
+                            } label: {
+                                KeyboardButton(image: "Two")
+                            }
+                            
+                            Button {
+                                numberTapped("3")
+                            } label: {
+                                KeyboardButton(image: "Three")
+                            }
                         }
                         
-                        Button {
-                            numberTapped("5")
-                        } label: {
-                            KeyboardButton(image: "Five")
+                        HStack(spacing: -10) {
+                            
+                            Button {
+                                numberTapped("4")
+                            } label: {
+                                KeyboardButton(image: "Four")
+                            }
+                            
+                            Button {
+                                numberTapped("5")
+                            } label: {
+                                KeyboardButton(image: "Five")
+                            }
+                            
+                            Button {
+                                numberTapped("6")
+                            } label: {
+                                KeyboardButton(image: "Six")
+                            }
                         }
                         
-                        Button {
-                            numberTapped("6")
-                        } label: {
-                            KeyboardButton(image: "Six")
-                        }
-                    }
-                    
-                    HStack(spacing: -10) {
-                        Button {
-                            numberTapped("7")
-                        } label: {
-                            KeyboardButton(image: "Seven")
-                        }
-                        
-                        Button {
-                            numberTapped("8")
-                        } label: {
-                            KeyboardButton(image: "Eight")
-                        }
-                        
-                        Button {
-                            numberTapped("9")
-                        } label: {
-                            KeyboardButton(image: "Nine")
-                        }
-                    }
-                    
-                    HStack(spacing: -10) {
-                        Button {
-                            deleteNumber()
-                        } label: {
-                            KeyboardButton(image: "Delete")
+                        HStack(spacing: -10) {
+                            Button {
+                                numberTapped("7")
+                            } label: {
+                                KeyboardButton(image: "Seven")
+                            }
+                            
+                            Button {
+                                numberTapped("8")
+                            } label: {
+                                KeyboardButton(image: "Eight")
+                            }
+                            
+                            Button {
+                                numberTapped("9")
+                            } label: {
+                                KeyboardButton(image: "Nine")
+                            }
                         }
                         
-                        Button {
-                            numberTapped("0")
-                        } label: {
-                            KeyboardButton(image: "Zero")
-                        }
-                        
-                        Button {
-                            checkAnswer()
-                        } label: {
-                            KeyboardButton(image: "Enter")
+                        HStack(spacing: -10) {
+                            Button {
+                                deleteNumber()
+                            } label: {
+                                KeyboardButton(image: "Delete")
+                            }
+                            
+                            Button {
+                                numberTapped("0")
+                            } label: {
+                                KeyboardButton(image: "Zero")
+                            }
+                            
+                            Button {
+                                checkAnswer()
+                            } label: {
+                                KeyboardButton(image: "Enter")
+                            }
                         }
                     }
                 }
-            }
-            .navigationBarBackButtonHidden(true)
-            .onAppear {
-                questionGenerator()
-            }
-            .alert(alertMessage, isPresented: $showAlert) {
-                if isGameOver {
-                    Button("Restart", action: restartGame)
-                } else {
-                    Button("OK", role: .cancel) { }
+                .onAppear {
+                    questionGenerator()
+                }
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink {
+                            SettingsView()
+                        } label: {
+                            Image(systemName: "gear")
+                        }
+                    }
+                }
+                .alert(alertMessage, isPresented: $showAlert) {
+                    if isGameOver {
+                        Button("Restart", action: restartGame)
+                    } else {
+                        Button("OK", role: .cancel) { }
+                    }
                 }
             }
         }
