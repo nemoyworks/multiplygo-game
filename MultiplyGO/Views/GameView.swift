@@ -10,6 +10,7 @@ struct GameView: View {
     @State private var alertMessage = ""
     @State private var showAlert = false
     @State private var score = 0
+    @State private var isGameOver = false
     
     let progressBarWidth: CGFloat = 230
     let tables: Set<Int>
@@ -68,9 +69,9 @@ struct GameView: View {
                                 )
                                 .overlay(
                                     TextField("", text: $answer)
-                                        .frame(width: 180)
+                                        .frame(width: 190)
                                         .multilineTextAlignment(.center)
-                                        .keyboardType(.numberPad)
+                                        .disabled(true)
                                 )
                         }
                             .offset(y: 20)
@@ -168,13 +169,17 @@ struct GameView: View {
                     }
                 }
             }
-        }
-        .navigationBarBackButtonHidden(true)
-        .onAppear {
-            questionGenerator()
-        }
-        .alert(alertMessage, isPresented: $showAlert) {
-            Button("OK, got it!", role: .cancel) { }
+            .navigationBarBackButtonHidden(true)
+            .onAppear {
+                questionGenerator()
+            }
+            .alert(alertMessage, isPresented: $showAlert) {
+                if isGameOver {
+                    Button("Restart", action: restartGame)
+                } else {
+                    Button("OK", role: .cancel) { }
+                }
+            }
         }
     }
     
@@ -187,7 +192,7 @@ struct GameView: View {
     }
     
     func numberTapped(_ number: String) {
-            answer.append(number)
+        answer.append(number)
     }
     
     func deleteNumber() {
@@ -223,6 +228,19 @@ struct GameView: View {
         if questionCount == numberOfQuestions {
             alertMessage = "Your score is \(score) out of 10"
             showAlert = true
+            isGameOver = true
+            
+        }
+    }
+    
+    func restartGame() {
+        if isGameOver == true {
+            score = 0
+            questionCount = 0
+            answer = ""
+            currentMultiplier = 1
+            questionGenerator()
+            isGameOver = false
         }
     }
 }
